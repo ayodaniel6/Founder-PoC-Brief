@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F172A" />
+  <title>Founder Prototype Brief — Jidoka Technologies</title>
+  <meta name="description" content="Scope an investor-ready prototype for your Fintech, Healthtech or Edtech startup in about 7 minutes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- =========================================================
+       PROGRESS BAR
+       ========================================================= -->
+  <div class="progress" id="progress" aria-hidden="true">
+    <div class="progress__track">
+      <div class="progress__fill" id="progressFill"></div>
+    </div>
+    <div class="progress__meta">
+      <span class="progress__label" id="progressLabel">Step 1 of 5</span>
+      <span class="progress__saved" id="savedIndicator">Saved</span>
+    </div>
+  </div>
+  <div class="sr-only" role="status" aria-live="polite" id="liveRegion"></div>
+
+  <main class="shell">
+    <form id="briefForm" novalidate autocomplete="on">
+      <!-- Spam trap: real people never see or fill this -->
+      <input type="text" name="_gotcha" id="q-gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+
+      <!-- =========================================================
+           SCREEN 0 — WELCOME
+           ========================================================= -->
+      <section class="screen welcome is-active" data-screen="0" aria-labelledby="h-welcome" tabindex="-1">
+        <div class="fade">
+          <div class="brand">
+            <span class="brand__mark" aria-hidden="true">J</span>
+            <span class="brand__name">Jidoka Technologies</span>
+          </div>
+
+          <span class="section-kicker">Founder Prototype Brief</span>
+          <h1 id="h-welcome">Let’s scope the prototype you’ll pitch with.</h1>
+
+          <div class="lede">
+            <p>Investors don’t fund a finished product. They fund a clear problem, a believable solution, and one moment that makes them lean in.</p>
+            <p>This brief helps you decide what that moment is, what has to truly work, and what can simply look like it works. No technical knowledge needed.</p>
+          </div>
+
+          <dl class="terms" aria-label="About this brief">
+            <div><dt>Time</dt><dd>About 7 minutes</dd></div>
+            <div><dt>Built for</dt><dd>Pre-seed founders</dd></div>
+            <div><dt>You get</dt><dd>A one-page scope &amp; plan</dd></div>
+          </dl>
+
+          <div>
+            <button type="button" class="btn btn--primary btn--lg" data-action="start">Start the brief <span class="arrow" aria-hidden="true">→</span></button>
+            <p class="resume-note" id="resumeNote" hidden>
+              Your answers are saved on this device. <button type="button" data-action="resume">Pick up where you left off</button>
+            </p>
+          </div>
+
+          <p class="fineprint">Your answers save automatically as you go. We only use them to prepare your scope and our first conversation.</p>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SCREEN 1 — THE VISION
+           ========================================================= -->
+      <section class="screen" data-screen="1" data-step="1" aria-labelledby="h-s1" tabindex="-1">
+        <div class="fade">
+          <header class="section-head">
+            <span class="section-kicker">01 · The vision</span>
+            <h2 id="h-s1">Who you are, and what you’re building.</h2>
+            <p class="helper">Write it the way you’d explain it to an investor over coffee. Rough is fine; we’ll sharpen it together.</p>
+          </header>
+
+          <div class="row-2">
+            <div class="question" data-question="name" data-required="true" data-type="text">
+              <label class="question__label" for="q-name">Your name<span class="req" aria-hidden="true">*</span></label>
+              <div class="question__body">
+                <input class="input" id="q-name" name="name" type="text" autocomplete="name" placeholder="Amara Okafor" aria-required="true" aria-describedby="err-name" />
+              </div>
+              <div class="error" id="err-name" role="alert"><span>Please add your name.</span></div>
+            </div>
+
+            <div class="question" data-question="email" data-required="true" data-type="email">
+              <label class="question__label" for="q-email">Email<span class="req" aria-hidden="true">*</span></label>
+              <div class="question__body">
+                <input class="input" id="q-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="amara@company.com" aria-required="true" aria-describedby="err-email" />
+              </div>
+              <div class="error" id="err-email" role="alert"><span>Enter an email we can reply to.</span></div>
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div class="question" data-question="company" data-required="true" data-type="text">
+              <label class="question__label" for="q-company">Company name<span class="req" aria-hidden="true">*</span></label>
+              <div class="question__body">
+                <input class="input" id="q-company" name="company" type="text" autocomplete="organization" placeholder="Ledgerly" aria-required="true" aria-describedby="err-company" />
+              </div>
+              <div class="error" id="err-company" role="alert"><span>A working name is fine.</span></div>
+            </div>
+
+            <div class="question" data-question="industry" data-type="select">
+              <label class="question__label" for="q-industry">Industry<span class="opt">Optional</span></label>
+              <div class="question__body">
+                <select class="select" id="q-industry" name="industry">
+                  <option value="">Select…</option>
+                  <option>Fintech</option>
+                  <option>Healthtech</option>
+                  <option>Edtech</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="question" data-question="problem" data-required="true" data-type="text">
+            <label class="question__label" for="q-problem">The problem<span class="req" aria-hidden="true">*</span>
+              <span class="question__aside">What specific pain point are you solving? Who feels this pain the most?</span>
+            </label>
+            <div class="question__body">
+              <textarea class="textarea" id="q-problem" name="problem" rows="4" placeholder="Small clinic owners spend 6+ hours a week chasing unpaid insurance claims by phone. Office managers feel it most — it’s the first thing they do every morning." aria-required="true" aria-describedby="err-problem"></textarea>
+            </div>
+            <div class="error" id="err-problem" role="alert"><span>Tell us about the pain you’re solving.</span></div>
+          </div>
+
+          <div class="question" data-question="solution" data-required="true" data-type="text">
+            <label class="question__label" for="q-solution">The solution<span class="req" aria-hidden="true">*</span>
+              <span class="question__aside">In one sentence, how does your product solve it?</span>
+            </label>
+            <div class="question__body">
+              <textarea class="textarea textarea--short" id="q-solution" name="solution" rows="2" maxlength="400" placeholder="Ledgerly tracks every claim automatically and tells the office manager exactly which ones to chase today." aria-required="true" aria-describedby="err-solution count-solution" data-soft-limit="200"></textarea>
+              <div class="counter" id="count-solution" aria-live="polite"></div>
+            </div>
+            <div class="error" id="err-solution" role="alert"><span>One sentence is all we need.</span></div>
+          </div>
+
+          <div class="nav">
+            <button type="button" class="btn btn--ghost" data-action="back">← Back</button>
+            <span class="kbd-hint">or press <kbd>Enter ↵</kbd></span>
+            <button type="button" class="btn btn--primary" data-action="next">Continue <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SCREEN 2 — THE DEMO
+           ========================================================= -->
+      <section class="screen" data-screen="2" data-step="2" aria-labelledby="h-s2" tabindex="-1">
+        <div class="fade">
+          <header class="section-head">
+            <span class="section-kicker">02 · The demo</span>
+            <h2 id="h-s2">The moment investors remember.</h2>
+            <p class="helper">A great pitch prototype is built around one moment. Everything else exists to get the investor there quickly.</p>
+          </header>
+
+          <div class="question" data-question="aha" data-required="true" data-type="text">
+            <label class="question__label" for="q-aha">The “Aha” moment<span class="req" aria-hidden="true">*</span>
+              <span class="question__aside">When someone opens your prototype for the first time, what is the ONE thing you want them to do or see that makes them say “Wow”?</span>
+            </label>
+            <div class="question__body">
+              <textarea class="textarea" id="q-aha" name="aha" rows="3" placeholder="They upload last month’s claims and instantly see $14,200 in money they didn’t know they were owed." aria-required="true" aria-describedby="err-aha"></textarea>
+            </div>
+            <div class="error" id="err-aha" role="alert"><span>Describe the moment you want them to remember.</span></div>
+          </div>
+
+          <div class="question" data-question="userFlow" data-required="true" data-type="text">
+            <label class="question__label" for="q-userFlow">Core user flow<span class="req" aria-hidden="true">*</span>
+              <span class="question__aside">List the 3–5 steps someone takes in the prototype, one per line. Think of it as the path to your “Aha” moment.</span>
+            </label>
+            <div class="question__body">
+              <textarea class="textarea textarea--flow" id="q-userFlow" name="userFlow" rows="5" placeholder="1. Sign up&#10;2. Connect bank&#10;3. See dashboard" aria-required="true" aria-describedby="err-userFlow count-userFlow"></textarea>
+              <div class="counter" id="count-userFlow" aria-live="polite"></div>
+            </div>
+            <div class="error" id="err-userFlow" role="alert"><span>List at least two steps.</span></div>
+          </div>
+
+          <div class="nav">
+            <button type="button" class="btn btn--ghost" data-action="back">← Back</button>
+            <button type="button" class="btn btn--primary" data-action="next">Continue <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SCREEN 3 — MOCKED VS. REAL
+           ========================================================= -->
+      <section class="screen" data-screen="3" data-step="3" aria-labelledby="h-s3" tabindex="-1">
+        <div class="fade">
+          <header class="section-head">
+            <span class="section-kicker">03 · Real vs. mocked</span>
+            <h2 id="h-s3">What has to work, and what just has to look right.</h2>
+          </header>
+
+          <aside class="explainer" aria-label="What mocked means">
+            <p class="explainer__title">Think of it like a film set.</p>
+            <p>The storefront looks real on camera, but there’s nothing behind the door. A <strong>mocked</strong> feature looks and feels real in your demo, but the results are prepared in advance. Investors expect this at pre-seed. Mocking the non-essentials puts your budget into the moment that matters.</p>
+            <div class="explainer__legend">
+              <span><i class="dot dot--real"></i> Real: it actually works with any input</span>
+              <span><i class="dot dot--mock"></i> Mocked: it looks real for the demo</span>
+            </div>
+          </aside>
+
+          <fieldset class="question" data-question="mustBeReal" data-required="true" data-type="multi">
+            <legend class="question__label" id="lbl-real"><i class="dot dot--real" aria-hidden="true"></i>What MUST be real?<span class="req" aria-hidden="true">*</span><span class="opt">Select all that apply</span>
+              <span class="question__aside">Only pick what an investor would notice if it didn’t really work. Each one adds build time.</span>
+            </legend>
+            <div class="question__body">
+              <div class="cards cards--stack" role="group" aria-labelledby="lbl-real" aria-describedby="err-mustBeReal count-real">
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="Real sign-up &amp; login">
+                  <span class="card__text"><span class="card__title">Real sign-up &amp; login</span><span class="card__desc">Investors create their own account with an email and password.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="Remembers what users enter">
+                  <span class="card__text"><span class="card__title">Remembers what users enter</span><span class="card__desc">Anything they type or upload is still there when they come back tomorrow.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="Real calculations">
+                  <span class="card__text"><span class="card__title">Real calculations</span><span class="card__desc">Numbers, scores or recommendations are worked out live from what they enter.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="Connects to real services">
+                  <span class="card__text"><span class="card__title">Connects to real services</span><span class="card__desc">Real payments, bank accounts, calendars or health records — like Stripe or Plaid.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="Live updates">
+                  <span class="card__text"><span class="card__title">Live updates</span><span class="card__desc">Screens change the instant something happens, without refreshing.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row card--quiet" role="checkbox" aria-checked="false" data-value="Not sure — help me decide" data-exclusive="true">
+                  <span class="card__text"><span class="card__title">Not sure — help me decide</span><span class="card__desc">We’ll recommend a split based on your “Aha” moment.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+              </div>
+              <div class="counter" id="count-real" aria-live="polite"></div>
+            </div>
+            <div class="error" id="err-mustBeReal" role="alert"><span>Pick at least one, or choose “Not sure”.</span></div>
+          </fieldset>
+
+          <fieldset class="question" data-question="canBeMocked" data-required="true" data-type="multi">
+            <legend class="question__label" id="lbl-mock"><i class="dot dot--mock" aria-hidden="true"></i>What can be mocked for the pitch?<span class="req" aria-hidden="true">*</span><span class="opt">Select all that apply</span>
+              <span class="question__aside">These look real in the demo and cost far less to build.</span>
+            </legend>
+            <div class="question__body">
+              <div class="cards cards--stack" role="group" aria-labelledby="lbl-mock" aria-describedby="err-canBeMocked">
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="“Enter demo” button instead of login">
+                  <span class="card__text"><span class="card__title">“Enter demo” button instead of login</span><span class="card__desc">One tap takes investors straight in, no account needed.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="Realistic sample data">
+                  <span class="card__text"><span class="card__title">Realistic sample data</span><span class="card__desc">Made-up but believable customers, transactions, patients or students.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="Simulated connections">
+                  <span class="card__text"><span class="card__title">Simulated connections</span><span class="card__desc">“Connect your bank” works on screen, but shows prepared results.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row" role="checkbox" aria-checked="false" data-value="Pre-set results">
+                  <span class="card__text"><span class="card__title">Pre-set results</span><span class="card__desc">The result screen shows the same polished outcome every time.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+                <button type="button" class="card card--row card--quiet" role="checkbox" aria-checked="false" data-value="Not sure — help me decide" data-exclusive="true">
+                  <span class="card__text"><span class="card__title">Not sure — help me decide</span><span class="card__desc">We’ll suggest what’s safe to mock.</span></span>
+                  <span class="card__check" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6.5 L5 9 L10 3"/></svg></span>
+                </button>
+              </div>
+            </div>
+            <div class="error" id="err-canBeMocked" role="alert"><span>Pick at least one, or choose “Not sure”.</span></div>
+          </fieldset>
+
+          <div class="notice" id="clashNotice" hidden role="status"></div>
+
+          <div class="nav">
+            <button type="button" class="btn btn--ghost" data-action="back">← Back</button>
+            <button type="button" class="btn btn--primary" data-action="next">Continue <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SCREEN 4 — THE PITCH CONTEXT
+           ========================================================= -->
+      <section class="screen" data-screen="4" data-step="4" aria-labelledby="h-s4" tabindex="-1">
+        <div class="fade">
+          <header class="section-head">
+            <span class="section-kicker">04 · The pitch</span>
+            <h2 id="h-s4">Where and when investors will see it.</h2>
+            <p class="helper">How you show the prototype changes what we build. A recorded video needs far less than a link investors explore on their own.</p>
+          </header>
+
+          <div class="question" data-question="presentation" data-required="true" data-type="select">
+            <label class="question__label" for="q-presentation">How will you show this to investors?<span class="req" aria-hidden="true">*</span></label>
+            <div class="question__body">
+              <select class="select" id="q-presentation" name="presentation" aria-required="true" aria-describedby="err-presentation hint-presentation">
+                <option value="">Select…</option>
+                <option>Hand them my phone</option>
+                <option>Share screen on Zoom</option>
+                <option>Send them a link to click around</option>
+                <option>Video recording</option>
+              </select>
+              <p class="hint" id="hint-presentation" aria-live="polite"></p>
+            </div>
+            <div class="error" id="err-presentation" role="alert"><span>Choose the closest option.</span></div>
+          </div>
+
+          <div class="question" data-question="timeline" data-required="true" data-type="select">
+            <label class="question__label" for="q-timeline">Timeline<span class="req" aria-hidden="true">*</span></label>
+            <div class="question__body">
+              <select class="select" id="q-timeline" name="timeline" aria-required="true" aria-describedby="err-timeline hint-timeline">
+                <option value="">Select…</option>
+                <option>Investor pitch in 2 weeks</option>
+                <option>Investor pitch in 4 weeks</option>
+                <option>Investor pitch in 8 weeks</option>
+                <option>Just exploring</option>
+              </select>
+              <p class="hint" id="hint-timeline" aria-live="polite"></p>
+            </div>
+            <div class="error" id="err-timeline" role="alert"><span>Choose the closest option.</span></div>
+          </div>
+
+          <div class="question" data-question="decisionMakers" data-required="true" data-type="text">
+            <label class="question__label" for="q-decisionMakers">Who needs to sign off on this?<span class="req" aria-hidden="true">*</span>
+              <span class="question__aside">Co-founders, an advisor, an angel investor. Write “Just me” if it’s your call.</span>
+            </label>
+            <div class="question__body">
+              <input class="input" id="q-decisionMakers" name="decisionMakers" type="text" placeholder="Just me, or: me and my co-founder Tunde" aria-required="true" aria-describedby="err-decisionMakers" />
+            </div>
+            <div class="error" id="err-decisionMakers" role="alert"><span>Let us know who’s involved.</span></div>
+          </div>
+
+          <div class="nav">
+            <button type="button" class="btn btn--ghost" data-action="back">← Back</button>
+            <button type="button" class="btn btn--primary" data-action="next">Continue <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SCREEN 5 — THE REALITY CHECK
+           ========================================================= -->
+      <section class="screen" data-screen="5" data-step="5" aria-labelledby="h-s5" tabindex="-1">
+        <div class="fade">
+          <header class="section-head">
+            <span class="section-kicker">05 · Reality check</span>
+            <h2 id="h-s5">What have you set aside for this?</h2>
+            <p class="helper">There’s no wrong answer. Your budget helps us shape the scope so your runway goes to what investors will actually see.</p>
+          </header>
+
+          <div class="question" data-question="budget" data-required="true" data-type="select">
+            <label class="question__label" for="q-budget">Budget<span class="req" aria-hidden="true">*</span></label>
+            <div class="question__body">
+              <select class="select" id="q-budget" name="budget" aria-required="true" aria-describedby="err-budget hint-budget">
+                <option value="">Select…</option>
+                <option>$2,000 – $5,000 CAD</option>
+                <option>$5,000 – $10,000 CAD</option>
+                <option>$10,000+ CAD</option>
+                <option>Not sure yet</option>
+              </select>
+              <p class="hint" id="hint-budget" aria-live="polite"></p>
+            </div>
+            <div class="error" id="err-budget" role="alert"><span>Choose the closest range, or “Not sure yet”.</span></div>
+          </div>
+
+          <div class="question" data-question="notes" data-type="text">
+            <label class="question__label" for="q-notes">Anything else we should know?<span class="opt">Optional</span>
+              <span class="question__aside">Designs you already have, a demo day date, competitors you admire, worries you have.</span>
+            </label>
+            <div class="question__body">
+              <textarea class="textarea textarea--short" id="q-notes" name="notes" rows="3" placeholder="We have Figma screens from a freelancer. Demo day is March 12."></textarea>
+            </div>
+          </div>
+
+          <div class="nav">
+            <button type="button" class="btn btn--ghost" data-action="back">← Back</button>
+            <button type="button" class="btn btn--primary" data-action="next">Review my brief <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           SCREEN 6 — REVIEW & SUBMIT
+           ========================================================= -->
+      <section class="screen closing" data-screen="6" aria-labelledby="h-s6" tabindex="-1">
+        <div class="fade">
+          <header class="section-head">
+            <span class="section-kicker">Review</span>
+            <h2 id="h-s6">Here’s your brief<span id="closingName"></span>.</h2>
+            <p class="helper">Check everything reads the way you’d say it. Use <strong>Edit</strong> to change anything before you send it.</p>
+          </header>
+
+          <div class="checks" id="checks" hidden>
+            <p class="checks__title">Worth a second look</p>
+            <p class="checks__sub">None of these stop you from sending. They’re the things we’d ask about on our first call.</p>
+            <ul id="checksList"></ul>
+          </div>
+
+          <dl class="summary" id="summaryList"></dl>
+
+          <div class="closing-actions">
+            <button type="button" class="btn btn--primary btn--lg" data-action="submit" id="submitBtn">Send my brief <span class="arrow" aria-hidden="true">→</span></button>
+            <button type="button" class="btn btn--ghost" data-action="back">← Back</button>
+          </div>
+
+          <div class="sent-state" id="sentState" role="status">
+            <span class="tick" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M2.5 7.5 L6 10.5 L11.5 3.5"/></svg></span>
+            <span id="sentMessage">Sent.</span>
+          </div>
+          <p class="next-step" id="nextStep" hidden></p>
+          <p class="booking" id="bookingWrap" hidden>
+            <a class="btn btn--primary" id="bookingLink" href="#" target="_blank" rel="noopener">Book a 20-minute scoping call <span class="arrow" aria-hidden="true">→</span></a>
+          </p>
+        </div>
+      </section>
+
+    </form>
+  </main>
+
+  <script src="js/shared.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

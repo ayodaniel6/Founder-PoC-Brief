@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0F172A" />
+  <title>Prototype Scope &amp; Plan — Jidoka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+
+  <!-- Toolbar (hidden when printing) -->
+  <header class="toolbar" role="toolbar" aria-label="Document actions">
+    <div class="toolbar__title">
+      <span class="dot" aria-hidden="true">J</span>
+      Prototype Scope &amp; Plan
+    </div>
+    <div class="toolbar__actions">
+      <button type="button" class="tbtn" id="copyLink">Copy link</button>
+      <button type="button" class="tbtn" id="downloadJson">Download data (.json)</button>
+      <button type="button" class="tbtn tbtn--primary" id="printBtn">Print / Save as PDF</button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <!-- Empty / error state -->
+    <section class="empty" id="emptyState" hidden>
+      <h1>No scope to show.</h1>
+      <p id="emptyMsg">Open this page from the link in a brief email, or send a brief from the form first.</p>
+      <p><a class="tbtn tbtn--primary" href="?sample=1">View a sample scope</a></p>
+    </section>
+
+    <!-- The one-page scope document -->
+    <article class="sheet" id="sheet" hidden aria-label="Prototype Scope and Plan">
+      <header class="hero">
+        <div class="hero__kicker">Jidoka Technologies · Prototype Scope &amp; Plan</div>
+        <h1 class="hero__title" id="pProject">Untitled project</h1>
+        <dl class="hero__meta">
+          <div><dt>Founder</dt><dd id="pFounder">—</dd></div>
+          <div><dt>Email</dt><dd id="pEmail">—</dd></div>
+          <div><dt>Date</dt><dd id="pDate">—</dd></div>
+          <div><dt>Ref ID</dt><dd id="pRef">—</dd></div>
+        </dl>
+      </header>
+
+      <section class="block" aria-labelledby="h-vision">
+        <h2 id="h-vision"><span class="num">1</span> The Vision</h2>
+        <dl class="brief">
+          <dt>Problem</dt><dd id="pProblem">—</dd>
+          <dt>Solution</dt><dd id="pSolution">—</dd>
+          <dt>The “Aha” moment</dt><dd><blockquote class="aha" id="pAha">—</blockquote></dd>
+        </dl>
+      </section>
+
+      <section class="block" aria-labelledby="h-build">
+        <h2 id="h-build"><span class="num">2</span> Build Strategy</h2>
+        <div class="sub-label">Core user flow</div>
+        <ol class="flow" id="pFlow"></ol>
+
+        <div class="sub-label">Real vs. mocked</div>
+        <div class="matrix">
+          <div class="matrix__col matrix__col--real">
+            <div class="matrix__head">Real <span>Works with any input</span></div>
+            <ul id="pReal"></ul>
+          </div>
+          <div class="matrix__col matrix__col--mock">
+            <div class="matrix__head">Mocked <span>Looks real for the pitch</span></div>
+            <ul id="pMock"></ul>
+          </div>
+        </div>
+        <p class="matrix__note">By mocking non-essential features, we reduce your build time and cost, focusing your budget strictly on the “Aha” moment for your investors.</p>
+      </section>
+
+      <section class="block" aria-labelledby="h-pitch">
+        <h2 id="h-pitch"><span class="num">3</span> Pitch Logistics</h2>
+        <div class="tiles">
+          <div class="tile"><span class="tile__label">Timeline</span><span class="tile__value" id="pTimeline">—</span></div>
+          <div class="tile"><span class="tile__label">Presentation</span><span class="tile__value" id="pPresentation">—</span></div>
+          <div class="tile"><span class="tile__label">Decision makers</span><span class="tile__value" id="pDecision">—</span></div>
+          <div class="tile"><span class="tile__label">Budget</span><span class="tile__value" id="pBudget">—</span></div>
+        </div>
+        <p class="founder-notes" id="pNotes" hidden></p>
+      </section>
+
+      <section class="block next" aria-labelledby="h-next">
+        <h2 id="h-next"><span class="num">4</span> Next Steps</h2>
+        <div class="align" id="pAlignWrap" hidden>
+          <div class="sub-label">Points to align on</div>
+          <ul id="pAlign"></ul>
+        </div>
+        <div class="proposal">
+          <div class="proposal__title">Next Steps / Proposal Outline</div>
+          <div class="proposal__body" id="pProposal" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Next steps and proposal outline" data-placeholder="Click to type, or print and write by hand."></div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span id="pFootRef">—</span>
+        <span>Brief → Scoping call → Proposal → Build</span>
+      </footer>
+    </article>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
